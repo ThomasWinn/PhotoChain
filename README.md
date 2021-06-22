@@ -18,6 +18,7 @@ opens up an interactive JS environment for the blockchain
 - mocha testing framework (https://mochajs.org/)
 - chai assertion library (https://www.chaijs.com/)
 - Testing is important for smart contracts because it is immutable. You can't change once deployed and only a new copy if so
+- truffle migrate --reset ... This reset flag allows us to deploy a new version of the smart contract 
 
 ## PhotoChain.sol
 use `memory` because this is what will be pulled from IPFS
@@ -32,6 +33,9 @@ use `memory` because this is what will be pulled from IPFS
 
 ## How it works 
 Web and wallet -> HTML code -> block chain and etherium smart contract (immutable) -> 
+
+#### Front end
+- new terminal `npm run start`
 
 #### block chain and etherium smart contract (immutable)
 - stores IPFS hash on block chain
