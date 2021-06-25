@@ -10,6 +10,7 @@ import Main from './Main'
 class App extends Component {
 
   // life cycle call back
+  // to instantly call the loadWeb3 on startup
   async componentWillMount() {
     await this.loadWeb3()
     await this.loadBlockchainData()
@@ -33,6 +34,17 @@ class App extends Component {
     const web3 = window.web3 
 
     const accounts = await web3.eth.getAccounts()
+    this.setState({account: accounts[0]})
+
+    const networkID = await  web3.eth.net.getId()
+    const networkData = PhotoChain.networks[networkID]
+    
+    if (networkData) {
+      const photochain = web3.eth.Contract(PhotoChain.abi, networkData.address) 
+    }
+    else {
+      window.alert('PhotoChain contract not deployed to detected network')
+    }
   }
 
   constructor(props) {
