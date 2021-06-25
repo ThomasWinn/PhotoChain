@@ -36,6 +36,7 @@ Web and wallet -> HTML code -> block chain and etherium smart contract (immutabl
 
 #### Front end
 - new terminal `npm run start`
+- web3.js is the main way how to interact with etherium
 
 #### block chain and etherium smart contract (immutable)
 - stores IPFS hash on block chain
