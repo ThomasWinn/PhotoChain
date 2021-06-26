@@ -41,6 +41,13 @@ class App extends Component {
     
     if (networkData) {
       const photochain = web3.eth.Contract(PhotoChain.abi, networkData.address) 
+      this.setState({ photochain })
+
+      // load images
+      const photo_count = await photochain.methods.photo_count().call()
+      this.setState({ photo_count })
+
+      this.setState({ loading: false })
     }
     else {
       window.alert('PhotoChain contract not deployed to detected network')
@@ -51,6 +58,9 @@ class App extends Component {
     super(props)
     this.state = {
       account: '',
+      photochain: null,
+      images: [], 
+      loading: true
     }
   }
 

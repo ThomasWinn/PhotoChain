@@ -10,10 +10,25 @@ class Main extends Component {
           <main role="main" className="col-lg-12 ml-auto mr-auto" style={{ maxWidth: '500px' }}>
             <div className="content mr-auto ml-auto">
               <p>&nbsp;</p>
-              <h1 className="d-4">Edit this file in App.js!</h1>
-                
-                {/* Code ... */}
-
+              <h2>Share Photo</h2>
+              <form onSubmit={( event ) => {
+                event.preventDefault()
+                const description = this.photoDescription.value // may not work
+                this.props.upload_photo(description)
+              }} >
+                <input type='file' accept='.jpg, .jpeg, .png, .bmp, .gif' onChange={ this.props.captureFile } />
+                  <div className='form-group mr-sm-2'>
+                    <br></br>
+                      <input 
+                        id='photoDescription'
+                        type='text'
+                        ref={ (input) => {this.photoDescription = input }}
+                        className='form-control'
+                        placeholder='Image description...'
+                        required />
+                  </div>
+                  <button type='submit' class='btn btn-primary btn-block btn-lg'>Upload!</button>
+              </form>
               <p>&nbsp;</p>
                 
                 {/* Code ... */}
